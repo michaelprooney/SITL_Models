@@ -10,6 +10,28 @@
             <size>200 200 10</size> <!-- width, length, height (m) -->
             </heightmap>
         </geometry>
+
+        <!-- Make it behave like a rock -->
+        <surface>
+            <friction>
+            <ode>
+                <mu>1.2</mu>        <!-- high friction (hard to slide) -->
+                <mu2>1.2</mu2>
+            </ode>
+            </friction>
+            <bounce>
+            <restitution_coefficient>0.0</restitution_coefficient> <!-- no bounce -->
+            <threshold>1e6</threshold>
+            </bounce>
+            <contact>
+            <ode>
+                <kp>1e7</kp>       <!-- high stiffness -->
+                <kd>1e3</kd>       <!-- some damping -->
+                <max_vel>0.1</max_vel>
+                <min_depth>0.001</min_depth>
+            </ode>
+            </contact>
+        </surface>
         </collision>
         <visual name="terrain_visual">
         <geometry>
@@ -19,7 +41,7 @@
             <texture>
                 <diffuse>model://rocky_terrain/materials/textures/Rocky/textures/rocks_ground_02_col_4k.jpg</diffuse>
                 <normal>model://rocky_terrain/materials/textures/Rocky/textures/rocks_ground_02_rough_4k.jpg</normal>
-                <size>30</size>
+                <size>100</size>
             </texture>
             </heightmap>
         </geometry>

@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+    <model name="xcf_terrain">
+    <static>true</static>
+    <link name="terrain">
+        <collision name="terrain_collision">
+        <geometry>
+            <heightmap>
+            <uri>model://rocky_terrain/materials/textures/Rocky/heightmap.png</uri>
+            <size>200 200 10</size> <!-- width, length, height (m) -->
+            </heightmap>
+        </geometry>
+
+        <!-- Make it behave like sand -->
+        <surface>
+        <friction>
+            <ode>
+            <mu>0.6</mu>        <!-- moderate friction, some slip -->
+            <mu2>0.5</mu2>      <!-- slightly lower secondary friction -->
+            <slip1>0.5</slip1>  <!-- adds lateral slip like sand grains -->
+            <slip2>0.5</slip2>
+            </ode>
+        </friction>
+
+        <bounce>
+            <restitution_coefficient>0.0</restitution_coefficient> <!-- sand absorbs impact -->
+            <threshold>1e6</threshold>
+        </bounce>
+
+        <contact>
+            <ode>
+            <kp>5e5</kp>       <!-- much softer than rock (compressible) -->
+            <kd>1e4</kd>       <!-- more damping (energy loss in deformation) -->
+            <max_vel>0.2</max_vel>  <!-- slightly higher contact velocity allowed -->
+            <min_depth>0.002</min_depth>
+            </ode>
+        </contact>
+        </surface>
+        </collision>
+        <visual name="terrain_visual">
+        <geometry>
+            <heightmap>
+            <uri>model://sandy_terrain/materials/textures/Rocky/heightmap.png</uri>
+            <size>200 200 10</size>
+            <texture>
+                <diffuse>model://sandy_terrain/textures/aerial_beach_01_diff_4k.jpg</diffuse>
+                <normal>model://sandy_terrain/textures/aerial_beach_01_nor_gl_4k.png</normal>
+                <size>100</size>
+            </texture>
+            </heightmap>
+        </geometry>
+        </visual>
+    </link>
+    </model>
+</sdf>
