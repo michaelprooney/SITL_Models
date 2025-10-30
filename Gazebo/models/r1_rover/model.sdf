@@ -2,6 +2,7 @@
   <model name='r1_rover'>
     <link name='base_link'>
       <pose>0 0 0 0 -0 0</pose>
+      <enable_wind>true</enable_wind>
       <inertial>
         <pose>0 0 0 0 -0 0</pose>
         <mass>10.0</mass>
@@ -105,9 +106,23 @@
         <always_on>1</always_on>
         <update_rate>1000</update_rate>
       </sensor>
+      <sensor name="magnetometer_sensor" type="magnetometer">
+        <pose>0 0 0 0 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>50</update_rate>
+      </sensor>
+      <sensor name="navsat_sensor" type="navsat">
+        <always_on>1</always_on>
+        <update_rate>10</update_rate>
+        <navsat>
+          <position_sensing></position_sensing>
+          <velocity_sensing></velocity_sensing>
+        </navsat>
+      </sensor>
       <sensor name="air_pressure_sensor" type="air_pressure">
         <always_on>1</always_on>
         <update_rate>50</update_rate>
+        <topic>/world/runway/air_pressure</topic>
         <air_pressure>
           <pressure>
             <noise type="gaussian">
@@ -433,6 +448,10 @@
     <!-- plugins -->
     <plugin name="gz::sim::systems::JointStatePublisher"
       filename="gz-sim-joint-state-publisher-system">
+      <joint_name>motor_0</joint_name>  <!-- Left front wheel -->
+      <joint_name>motor_2</joint_name>  <!-- Right front wheel -->
+      <topic>/joint_states</topic>
+      <update_rate>100</update_rate>
     </plugin>
 
     <plugin name="gz::sim::systems::OdometryPublisher"
@@ -464,7 +483,7 @@
     <plugin name="ArduPilotPlugin"
       filename="ArduPilotPlugin">
       <fdm_addr>127.0.0.1</fdm_addr>
-      <fdm_port_in>9002</fdm_port_in>        
+      <fdm_port_in>9002</fdm_port_in>
       <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
       <lock_step>1</lock_step>
       <gazeboXYZToNED degrees="true">0 0 0 180 0 90</gazeboXYZToNED>

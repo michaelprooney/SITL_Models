@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+    <model name="xcf_terrain">
+    <static>true</static>
+    <link name="terrain">
+        <collision name="terrain_collision">
+        <geometry>
+            <heightmap>
+            <uri>model://rocky_terrain/materials/textures/Rocky/heightmap.png</uri>
+            <size>200 200 10</size> <!-- width, length, height (m) -->
+            </heightmap>
+        </geometry>
+        </collision>
+        <visual name="terrain_visual">
+        <geometry>
+            <heightmap>
+            <uri>model://rocky_terrain/materials/textures/Rocky/heightmap.png</uri>
+            <size>200 200 10</size>
+            <texture>
+                <diffuse>model://rocky_terrain/materials/textures/Rocky/textures/rocks_ground_02_col_4k.jpg</diffuse>
+                <normal>model://rocky_terrain/materials/textures/Rocky/textures/rocks_ground_02_rough_4k.jpg</normal>
+                <size>30</size>
+            </texture>
+            </heightmap>
+        </geometry>
+        </visual>
+    </link>
+    </model>
+</sdf>
