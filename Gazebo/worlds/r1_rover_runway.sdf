@@ -10,9 +10,9 @@
     </atmosphere>
     <spherical_coordinates>
       <surface_model>EARTH_WGS84</surface_model>
-      <latitude_deg>39.79480109851339</latitude_deg>
-      <longitude_deg>-84.08631702793322</longitude_deg>
-      <elevation>265.2</elevation>
+      <latitude_deg>-35.3632623</latitude_deg>
+      <longitude_deg>149.165237</longitude_deg>
+      <elevation>594.1</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <physics name="1ms" type="ignored">
