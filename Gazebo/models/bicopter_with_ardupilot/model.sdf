@@ -10,17 +10,17 @@
         filename="gz-sim-apply-joint-force-system">
       <joint_name>bicopter::ccw_mot_joint</joint_name>
     </plugin>
-    
+
     <plugin name="gz::sim::systems::ApplyJointForce"
         filename="gz-sim-apply-joint-force-system">
       <joint_name>bicopter::cw_mot_joint</joint_name>
     </plugin>
-    
+
     <plugin name="gz::sim::systems::ApplyJointForce"
         filename="gz-sim-apply-joint-force-system">
       <joint_name>bicopter::ccw_servo_joint</joint_name>
     </plugin>
-    
+
     <plugin name="gz::sim::systems::ApplyJointForce"
         filename="gz-sim-apply-joint-force-system">
       <joint_name>bicopter::cw_servo_joint</joint_name>
@@ -89,7 +89,7 @@
         <cmd_max>2.5</cmd_max>
         <cmd_min>-2.5</cmd_min>
       </control>
-      
+
       <!--
         SERVO3_FUNCTION 75 (TiltMotorFrontLeft)
         SERVO3_REVERSED 0

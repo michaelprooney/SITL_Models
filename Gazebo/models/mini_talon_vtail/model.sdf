@@ -20,7 +20,7 @@
     chord tip:  0.0864 m
     span:       0.2 m
     area:       0.0225 m^2
-  
+
     ruddervator
     chord root: 0.0479 m
     chord tip:  0.0349 m
@@ -316,6 +316,11 @@
         <pose degrees="true">0 0 0 180 0 0</pose>
         <always_on>1</always_on>
         <update_rate>1000.0</update_rate>
+      </sensor>
+      <sensor name="magnetometer_sensor" type="magnetometer">
+        <pose>0 0 0 0 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>50</update_rate>
       </sensor>
       <sensor name="navsat_sensor" type="navsat">
         <always_on>1</always_on>
@@ -981,7 +986,7 @@
           SERVO3_REVERSED   0
           SERVO3_TRIM       1000
        -->
-      <control channel="2"> 
+      <control channel="2">
         <jointName>motor_joint</jointName>
         <multiplier>1000</multiplier>
         <offset>0</offset>
@@ -1024,7 +1029,7 @@
   </model>
 </sdf>
 
-<!-- 
+<!--
   Motor thrust calcs (initial estimates)
 
   PropDrive 3536 910kV motor
@@ -1038,34 +1043,34 @@
   Inertials
 
   fuselage:
-  mass: 
+  mass:
   radius: 0.16 m
   length: 0.8 m
 
   main wheel:
-  mass: 
+  mass:
   radius: 0.0135 m
   length: 0.014 m
 
   L/R wing
-  mass: 
+  mass:
   area: 0.65 x 0.245 = 0.16 m^2
-  cp: 
+  cp:
 
   L/R aileron
   mass:
   area: 0.237 x 0.0477 = 0.011 m^2
-  cp: 
+  cp:
 
   L/R v-tail
-  mass: 
+  mass:
   area: 0.126 x 0.197 = 0.025 m^2
-  cp: 
+  cp:
 
   L/R ruddervator
-  mass: 
+  mass:
   area: 0.042 x 0.154 = 0.0065 m^2
-  cp: 
+  cp:
 
   Position and thrust controller commands
 

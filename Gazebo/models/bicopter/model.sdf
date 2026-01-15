@@ -30,7 +30,7 @@
   Adjust camera zoom
     gz service -s /gui/follow/offset -/-reqtype gz.msgs.Vector3d -/-reptype gz.msgs.Boolean -/-timeout 2000 -/-req "x: -0.5, y: 0, z: 0.25"
 -->
-<sdf version="1.9"> 
+<sdf version="1.9">
   <model name="bicopter">
     <pose>0 0 0 0 0 0</pose>
     <link name="base_link">
@@ -50,6 +50,21 @@
           <izz>0.001333333</izz>
         </inertia>
       </inertial>
+      <sensor name="magnetometer_sensor" type="magnetometer">
+        <pose>0 0 0.08 0 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>50</update_rate>
+      </sensor>
+      <sensor name="navsat_sensor" type="gps">
+        <pose>0 0 0.08 0 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>10</update_rate>
+        <gps>
+          <position_sdn_stddev>0.0001 0.0001 0.0001</position_sdn_stddev>
+          <velocity_sdn_stddev>0.01 0.01 0.01</velocity_sdn_stddev>
+          <satellites_visible>10</satellites_visible>
+        </gps>
+      </sensor>
       <collision name="collision">
         <geometry>
           <mesh>
@@ -89,7 +104,7 @@
         </material>
       </visual>
     </link>
-    
+
     <!-- left servo (ccw) -->
     <link name="ccw_servo_link">
       <pose relative_to="ccw_servo_joint">0 0 0 0 0 0</pose>
@@ -137,14 +152,14 @@
       <child>ccw_servo_link</child>
       <axis>
         <xyz>0 -1 0</xyz>
-        <limit>    
+        <limit>
           <lower>-0.785398163</lower>
           <upper>0.785398163</upper>
         </limit>
         <dynamics>
-          <damping>0.01</damping> 
+          <damping>0.01</damping>
         </dynamics>
-      </axis>      
+      </axis>
     </joint>
 
     <!-- left motor (ccw) -->
@@ -164,7 +179,7 @@
       </inertial>
       <collision name="collision">
         <geometry>
-          <mesh>    
+          <mesh>
             <scale>1 1 1</scale>
             <uri>model://bicopter/meshes/ccw_mot.stl</uri>
           </mesh>
@@ -210,7 +225,7 @@
           Estimate for inertial based on a solid box with dimensions:
           <size>0.03 0.04 0.02</size>
         -->
-        <inertia>    
+        <inertia>
           <ixx>8.33333E-06</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
@@ -245,7 +260,7 @@
       <pose relative_to="base_link">0.010312 -0.14923 0.15181 -0.018488 0 -3.14159</pose>
       <parent>base_link</parent>
       <child>cw_servo_link</child>
-      <axis>    
+      <axis>
         <xyz>0 1 0</xyz>
         <limit>
           <lower>-0.785398163</lower>
@@ -294,7 +309,7 @@
         </material>
       </visual>
       </link>
-    <joint name="cw_mot_joint" type="revolute"> 
+    <joint name="cw_mot_joint" type="revolute">
       <pose relative_to="cw_servo_link">0 0.003829 0.041455 0 0 0</pose>
       <parent>cw_servo_link</parent>
       <child>cw_mot_link</child>

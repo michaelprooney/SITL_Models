@@ -12,7 +12,7 @@
       <surface_model>EARTH_WGS84</surface_model>
       <latitude_deg>-35.3632623</latitude_deg>
       <longitude_deg>149.165237</longitude_deg>
-      <elevation>594.1</elevation>
+      <elevation>584.1</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <physics name="1ms" type="ignored">
@@ -180,9 +180,9 @@
 
     <!-- Rover -->
     <include>
-      <pose degrees="true">0 0 20 0 0 90</pose>
-      <!-- <uri>model://gs_drone</uri> -->
-      <uri>model://r1_rover</uri>
+      <pose degrees="true">0 0 0.2 0 0 90</pose>
+      <uri>model://gs_drone</uri>
+      <!-- <uri>model://r1_rover</uri> -->
       <!-- <uri>model://mini_talon_vtail</uri> -->
     </include>
 

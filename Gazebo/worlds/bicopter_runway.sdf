@@ -1,9 +1,23 @@
 <?xml version="1.0" ?>
 <sdf version="1.9">
   <world name="runway">
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <!-- <magnetic_field>6.0000000000000002e-06 2.3e-05 -4.1999999999999998e-05</magnetic_field> -->
+    <magnetic_field>2.5e-05 1.0e-06 4.0e-05</magnetic_field>
+    <atmosphere type='adiabatic'>
+      <temperature>288.15</temperature>    <!-- Kelvin (~15 °C) -->
+      <pressure>101325</pressure>         <!-- Pascals (sea level standard) -->
+    </atmosphere>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>-35.3632623</latitude_deg>
+      <longitude_deg>149.165237</longitude_deg>
+      <elevation>584.1</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
     <physics name="1ms" type="ignore">
       <max_step_size>0.001</max_step_size>
-      <real_time_factor>1.0</real_time_factor>
+      <real_time_factor>0</real_time_factor>
     </physics>
 
     <plugin filename="gz-sim-physics-system"
@@ -23,6 +37,11 @@
     <plugin filename="gz-sim-imu-system"
       name="gz::sim::systems::Imu">
     </plugin>
+    <plugin filename="gz-sim-magnetometer-system"
+      name="gz::sim::systems::Magnetometer">
+    </plugin>
+    <plugin name='gz::sim::systems::NavSat' filename='gz-sim-navsat-system'/>
+
 
     <scene>
       <ambient>1.0 1.0 1.0</ambient>

@@ -60,7 +60,7 @@
               <normal_map>model://skywalker_x8/materials/textures/metal_graphite/metal_graphite_normal.jpg</normal_map>
               <roughness_map>model://skywalker_x8/materials/textures/metal_graphite/metal_graphite_roughness.jpg</roughness_map>
               <roughness>1.0</roughness>
-              <metalness>1.0</metalness> 
+              <metalness>1.0</metalness>
             </metal>
           </pbr>
         </material>
@@ -83,7 +83,7 @@
               <normal_map>model://skywalker_x8/materials/textures/metal_graphite/metal_graphite_normal.jpg</normal_map>
               <roughness_map>model://skywalker_x8/materials/textures/metal_graphite/metal_graphite_roughness.jpg</roughness_map>
               <roughness>1.0</roughness>
-              <metalness>1.0</metalness> 
+              <metalness>1.0</metalness>
             </metal>
           </pbr>
         </material>
@@ -107,7 +107,7 @@
               <normal_map>model://skywalker_x8/materials/textures/blue_metal/blue_metal_normal.jpg</normal_map>
               <roughness_map>model://skywalker_x8/materials/textures/blue_metal/blue_metal_roughness.jpg</roughness_map>
               <roughness>1.0</roughness>
-              <metalness>1.0</metalness> 
+              <metalness>1.0</metalness>
             </metal>
           </pbr>
         </material>
@@ -131,7 +131,7 @@
               <normal_map>model://skywalker_x8/materials/textures/blue_metal/blue_metal_normal.jpg</normal_map>
               <roughness_map>model://skywalker_x8/materials/textures/blue_metal/blue_metal_roughness.jpg</roughness_map>
               <roughness>1.0</roughness>
-              <metalness>1.0</metalness> 
+              <metalness>1.0</metalness>
             </metal>
           </pbr>
         </material>
@@ -155,7 +155,7 @@
               <normal_map>model://skywalker_x8/materials/textures/blue_metal/blue_metal_normal.jpg</normal_map>
               <roughness_map>model://skywalker_x8/materials/textures/blue_metal/blue_metal_roughness.jpg</roughness_map>
               <roughness>1.0</roughness>
-              <metalness>1.0</metalness> 
+              <metalness>1.0</metalness>
             </metal>
           </pbr>
         </material>
@@ -179,7 +179,7 @@
               <normal_map>model://skywalker_x8/materials/textures/blue_metal/blue_metal_normal.jpg</normal_map>
               <roughness_map>model://skywalker_x8/materials/textures/blue_metal/blue_metal_roughness.jpg</roughness_map>
               <roughness>1.0</roughness>
-              <metalness>1.0</metalness> 
+              <metalness>1.0</metalness>
             </metal>
           </pbr>
         </material>
@@ -203,11 +203,24 @@
               <normal_map>model://skywalker_x8/materials/textures/blue_metal/blue_metal_normal.jpg</normal_map>
               <roughness_map>model://skywalker_x8/materials/textures/blue_metal/blue_metal_roughness.jpg</roughness_map>
               <roughness>1.0</roughness>
-              <metalness>1.0</metalness> 
+              <metalness>1.0</metalness>
             </metal>
           </pbr>
         </material>
       </visual>
+      <sensor name="magnetometer_sensor" type="magnetometer">
+        <pose>0 0 0 0 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>50</update_rate>
+      </sensor>
+      <sensor name="navsat_sensor" type="navsat">
+        <always_on>1</always_on>
+        <update_rate>10</update_rate>
+        <navsat>
+          <position_sensing></position_sensing>
+          <velocity_sensing></velocity_sensing>
+        </navsat>
+      </sensor>
       <!-- save for debugging use -->
       <!-- <visual name="cp_wing">
         <pose>0.01 0 0 0 0 0</pose>
@@ -650,7 +663,7 @@
         </dynamics>
       </axis>
     </joint>
-    
+
     <!-- Joint range -30/+30 deg. -->
     <joint name='right_elevon_joint' type='revolute'>
       <parent>base_link</parent>
@@ -1030,7 +1043,7 @@
           multiplier = 838 max rpm / 1 = 838
         -->
 
-      <!-- 
+      <!--
           SERVO3_FUNCTION   70 (Throttle)
           SERVO3_MAX        2000
           SERVO3_MIN        1000
@@ -1054,14 +1067,14 @@
         <cmd_min>-2.5</cmd_min>
       </control>
 
-      <!-- 
+      <!--
           SERVO1_FUNCTION   77 (Elevon Left)
           SERVO1_MAX        1900
           SERVO1_MIN        1100
           SERVO1_REVERSED   0
           SERVO1_TRIM       1500
 
-          pwm:          =>  [1100, 1900] 
+          pwm:          =>  [1100, 1900]
           input:        =>  [0, 1]
           offset: -0.5  =>  [-0.5, 0.5]
           scale:   2.0  =>  [-1.0, 1.0]
@@ -1084,7 +1097,7 @@
         <cmd_min>-2.5</cmd_min>
       </control>
 
-      <!-- 
+      <!--
           SERVO2_FUNCTION   78 (Elevon Right)
           SERVO2_MAX        1900
           SERVO2_MIN        1100
@@ -1108,7 +1121,7 @@
         <cmd_min>-2.5</cmd_min>
       </control>
 
-      <!-- 
+      <!--
           SERVO5_FUNCTION   33 (Motor1 Front Right CCW)
           SERVO5_MAX        1900
           SERVO5_MIN        1100
@@ -1132,7 +1145,7 @@
         <cmd_min>-2.5</cmd_min>
       </control>
 
-      <!-- 
+      <!--
           SERVO6_FUNCTION   34 (Motor2 Rear Left CCW)
           SERVO6_MAX        1900
           SERVO6_MIN        1100
@@ -1156,7 +1169,7 @@
         <cmd_min>-2.5</cmd_min>
       </control>
 
-      <!-- 
+      <!--
           SERVO7_FUNCTION   35 (Motor3 Front Left CW)
           SERVO7_MAX        1900
           SERVO7_MIN        1100
@@ -1180,7 +1193,7 @@
         <cmd_min>-2.5</cmd_min>
       </control>
 
-      <!-- 
+      <!--
           SERVO8_FUNCTION   36 (Motor4 Rear Right CW)
           SERVO8_MAX        1900
           SERVO8_MIN        1100
