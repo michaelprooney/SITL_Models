@@ -1,0 +1,3 @@
+[submodule "submodules/bluerov2_gz"]
+	path = submodules/bluerov2_gz
+	url = https://github.com/michaelprooney/bluerov2_gz
