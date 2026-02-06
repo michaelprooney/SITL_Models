@@ -2,8 +2,8 @@
 <sdf version="1.7">
   <world name="runway">
     <gravity>0 0 -9.8000000000000007</gravity>
-    <!-- <magnetic_field>6.0000000000000002e-06 2.3e-05 -4.1999999999999998e-05</magnetic_field> -->
-    <magnetic_field>2.5e-05 1.0e-06 4.0e-05</magnetic_field>
+    <magnetic_field>6.0000000000000002e-06 2.3e-05 -4.1999999999999998e-05</magnetic_field>
+    <!-- <magnetic_field>2.5e-05 1.0e-06 4.0e-05</magnetic_field> -->
     <atmosphere type='adiabatic'>
       <temperature>288.15</temperature>    <!-- Kelvin (~15 °C) -->
       <pressure>101325</pressure>         <!-- Pascals (sea level standard) -->
@@ -43,7 +43,7 @@
     </scene>
 
     <spherical_coordinates>
-      <latitude_deg>-35.363262</latitude_deg>
+      <latitude_deg>35.363262</latitude_deg>
       <longitude_deg>149.165237</longitude_deg>
       <elevation>584</elevation>
       <heading_deg>0</heading_deg>
